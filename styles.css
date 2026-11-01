@@ -65,7 +65,9 @@ img { display: block; max-width: 100%; }
 .recognition-heading .eyebrow { grid-column: 1 / -1; margin-bottom: 8px; color: #9dcaf0; }
 .recognition-heading h2 { margin: 0; color: #fff; font-family: var(--font-display); font-size: clamp(29px, 3.5vw, 42px); font-weight: 600; letter-spacing: -.05em; line-height: 1.1; }
 .recognition-heading > p:last-child { max-width: 430px; margin: 0 0 2px; color: #d3dde6; font-size: 14px; line-height: 1.7; }
-.recognition-card { display: grid; min-height: 178px; grid-template-columns: 64px 1fr; align-items: center; gap: 20px; padding: 26px 30px; border: 1px solid rgba(255,255,255,.22); border-radius: 5px; background: #fff; }
+.recognition-card { position: relative; display: grid; min-height: 190px; grid-template-columns: 64px 1fr; align-items: center; gap: 20px; padding: 30px; overflow: hidden; border: 1px solid rgba(255,255,255,.22); border-radius: 5px; background: #fff; box-shadow: 0 14px 35px rgba(0,0,0,.14); }
+.recognition-card::before { position: absolute; top: 0; right: 0; left: 0; height: 5px; background: #b38a3b; content: ""; }
+.recognition-card--shecard::before { background: var(--blue); }
 .recognition-mark { display: grid; width: 58px; height: 58px; place-items: center; border-radius: 50%; background: #f5eddb; color: #866a34; font-size: 27px; }
 .recognition-mark--blue { background: #e5eff8; }
 .recognition-level { color: #80683b; font-size: 10px; font-weight: 700; letter-spacing: .12em; }
@@ -219,12 +221,6 @@ img { display: block; max-width: 100%; }
   .section-heading h2 { font-size: 38px; }
   .section-intro { font-size: 11px; }
   .case-list { gap: 12px; }
-  .case-trigger { grid-template-columns: 24px 38px minmax(0, 1fr) 25px; gap: 12px; min-height: 88px; padding: 14px; }
-  .case-trigger__highlight { display: none; }
-  .case-trigger__icon { width: 36px; height: 36px; font-size: 18px; }
-  .case-trigger__copy strong { font-size: 17px; }
-  .case-trigger__copy small { font-size: 12px; }
-  .case-study[open] .case-trigger { padding-bottom: 16px; }
   .case-gallery { min-height: auto; padding: 10px; border: 0; border-bottom: 1px solid var(--line); }
   .case-gallery__main, .gallery-placeholder { min-height: 300px; flex-basis: 280px; }
   .gallery-placeholder { padding: 22px; }
@@ -275,11 +271,11 @@ img { display: block; max-width: 100%; }
 .case-study#orion .case-trigger { border-left: 3px solid #b38a3b; }
 .case-trigger {
   display: grid;
-  grid-template-columns: 34px 48px minmax(0, 1fr) auto 34px;
+  grid-template-columns: 54px minmax(0, 1fr) minmax(180px, 260px) 36px;
   align-items: center;
-  gap: 18px;
-  min-height: 112px;
-  padding: 20px 24px;
+  gap: 22px;
+  min-height: 164px;
+  padding: 19px 24px;
   cursor: pointer;
   list-style: none;
   transition: background .2s ease, padding .2s ease;
@@ -288,12 +284,21 @@ img { display: block; max-width: 100%; }
 .case-trigger::marker { content: ""; }
 .case-trigger:hover { background: #f9fbfc; }
 .case-trigger:focus-visible { position: relative; z-index: 1; outline: 3px solid var(--blue); outline-offset: -4px; }
-.case-trigger__index { color: var(--muted); font-family: var(--font-display); font-size: 12px; font-weight: 700; }
-.case-trigger__icon { display: grid; width: 46px; height: 46px; place-items: center; border-radius: 50%; background: #f0f3f6; font-size: 22px; }
+.case-trigger__icon { display: grid; width: 52px; height: 52px; place-items: center; border: 1px solid var(--line); border-radius: 14px; background: #f0f3f6; font-size: 25px; }
+.case-study--orion .case-trigger__icon { border-color: #e6d9bb; background: #fbf7ed; }
+.case-study--featured .case-trigger__icon { border-color: #c9dced; background: #edf5fb; }
+.case-study--laia .case-trigger__icon { border-color: #cde2d2; background: #f0f7f1; }
+.case-study--ptw .case-trigger__icon { border-color: #d3d9e3; background: #f1f3f7; }
+.case-study--ideas .case-trigger__icon { border-color: #e5d9ee; background: #f7f1fb; }
 .case-trigger__copy { display: grid; gap: 4px; min-width: 0; }
 .case-trigger__copy strong { color: var(--ink); font-family: var(--font-display); font-size: 21px; font-weight: 600; letter-spacing: -.035em; line-height: 1.2; }
 .case-trigger__copy small { color: var(--body); font-size: 13px; line-height: 1.5; }
-.case-trigger__highlight { padding: 7px 10px; border: 1px solid var(--line); border-radius: 3px; color: #526579; font-size: 11px; font-weight: 600; white-space: nowrap; }
+.case-trigger__benefit { margin-top: 5px; color: #53677a; font-size: 12px; font-weight: 600; line-height: 1.5; }
+.case-trigger__award { width: fit-content; margin-top: 5px; padding: 5px 9px; border: 1px solid #e6d9bb; border-radius: 3px; background: #fbf7ed; color: #725a2b; font-size: 10px; font-weight: 700; line-height: 1.4; }
+.case-study--featured .case-trigger__award { border-color: #c9dced; background: #edf5fb; color: var(--blue-deep); }
+.case-trigger__image { width: 100%; height: 126px; overflow: hidden; border: 1px solid var(--line); border-radius: 4px; background: #e9edf1; object-fit: cover; object-position: center; }
+.case-study--orion .case-trigger__image { object-position: top center; }
+.case-study--featured .case-trigger__image { object-position: center; }
 .case-trigger__toggle { position: relative; display: grid; width: 32px; height: 32px; place-items: center; border: 1px solid var(--line-strong); border-radius: 50%; transition: transform .25s ease, background .2s ease, border-color .2s ease; }
 .case-trigger__toggle::before,
 .case-trigger__toggle::after { position: absolute; width: 12px; height: 1.5px; background: var(--ink); content: ""; }
@@ -316,8 +321,10 @@ img { display: block; max-width: 100%; }
   to { opacity: 1; transform: translateY(0); }
 }
 @media (max-width: 950px) {
-  .case-trigger { grid-template-columns: 28px 42px minmax(0, 1fr) 30px; gap: 14px; }
-  .case-trigger__highlight { display: none; }
+  .case-trigger { grid-template-columns: 48px minmax(0, 1fr) minmax(140px, 210px) 32px; gap: 16px; }
+  .case-trigger__image { height: 108px; }
+  .recognition-card { grid-template-columns: 52px 1fr; gap: 15px; padding: 24px 20px; }
+  .recognition-mark { width: 50px; height: 50px; }
 }
 .case-study--featured .case-header { background: transparent; }
 .case-study--featured .case-overline span:first-child { color: var(--blue-deep); }
@@ -377,10 +384,15 @@ img { display: block; max-width: 100%; }
 
 @media (max-width: 700px) {
   .cases-section > .container { width: min(100% - 36px, 720px); }
-  .case-trigger { grid-template-columns: 24px 38px minmax(0, 1fr) 25px; gap: 12px; min-height: 88px; padding: 14px; }
-  .case-trigger__icon { width: 36px; height: 36px; font-size: 18px; }
-  .case-trigger__copy strong { font-size: 17px; }
+  .case-trigger { grid-template-columns: 42px minmax(0, 1fr) 28px; gap: 12px; min-height: 0; padding: 16px; }
+  .case-trigger__icon { grid-column: 1; grid-row: 1; width: 40px; height: 40px; border-radius: 11px; font-size: 20px; }
+  .case-trigger__copy { grid-column: 2; grid-row: 1; }
+  .case-trigger__copy strong { font-size: 18px; }
   .case-trigger__copy small { font-size: 12px; }
+  .case-trigger__benefit { font-size: 11px; }
+  .case-trigger__award { font-size: 9px; }
+  .case-trigger__image { grid-column: 2; grid-row: 2; height: clamp(110px, 34vw, 190px); }
+  .case-trigger__toggle { grid-column: 3; grid-row: 1; width: 28px; height: 28px; }
   .case-study[open] .case-trigger { padding-bottom: 16px; }
   .case-study[id] { scroll-margin-top: 76px; }
   .case-panel-inner { padding: 0 18px 20px; }
@@ -413,10 +425,12 @@ img { display: block; max-width: 100%; }
   .contact-details { flex-direction: column; gap: 10px; }
 }
 @media (max-width: 420px) {
-  .case-trigger { grid-template-columns: 20px 34px minmax(0, 1fr) 24px; gap: 9px; min-height: 82px; padding: 12px 10px; }
-  .case-trigger__icon { width: 32px; height: 32px; font-size: 16px; }
-  .case-trigger__copy strong { font-size: 15px; }
+  .case-trigger { grid-template-columns: 36px minmax(0, 1fr) 26px; gap: 9px; padding: 13px 10px; }
+  .case-trigger__icon { width: 34px; height: 34px; font-size: 17px; }
+  .case-trigger__copy strong { font-size: 16px; }
   .case-trigger__copy small { font-size: 11px; }
+  .case-trigger__benefit { font-size: 10px; }
+  .case-trigger__award { font-size: 8px; }
   .case-trigger__toggle { width: 26px; height: 26px; }
   .case-trigger__toggle::before,
   .case-trigger__toggle::after { width: 10px; }
