@@ -1,0 +1,8 @@
+{
+  "name": "jhonnathan-rufini-portfolio",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/generate-project-galleries.js",
+    "generate-galleries": "node scripts/generate-project-galleries.js"
+  }
+}
