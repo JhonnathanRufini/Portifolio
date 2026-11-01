@@ -124,7 +124,17 @@ galleries.forEach((gallery) => {
   renderGallery(gallery, files);
 });
 
-const revealElements = document.querySelectorAll(".recognition-card, .case-study, .technology-group, .journey-steps li");
+const projectCases = document.querySelectorAll(".case-list .case-study");
+projectCases.forEach((project) => {
+  project.addEventListener("toggle", () => {
+    if (!project.open) return;
+    projectCases.forEach((otherProject) => {
+      if (otherProject !== project && otherProject.open) otherProject.open = false;
+    });
+  });
+});
+
+const revealElements = document.querySelectorAll(".recognition-card, .technology-group, .journey-timeline li");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 if ("IntersectionObserver" in window && !prefersReducedMotion) {
