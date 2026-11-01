@@ -124,18 +124,6 @@ galleries.forEach((gallery) => {
   renderGallery(gallery, files);
 });
 
-document.querySelectorAll("[data-project-manual]").forEach((project) => {
-  const manual = window.PROJECT_MANUALS?.[project.dataset.projectManual];
-  if (!manual) return;
-
-  const link = makeElement("a", "project-manual", "Consultar manual do projeto");
-  link.href = manual;
-  link.target = "_blank";
-  link.rel = "noopener";
-  link.setAttribute("aria-label", `Consultar manual do projeto ${project.querySelector("h3")?.textContent || ""}`);
-  project.querySelector(".case-header")?.append(link);
-});
-
 const revealElements = document.querySelectorAll(".recognition-card, .case-study, .technology-group, .journey-steps li");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

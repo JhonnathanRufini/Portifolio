@@ -6,7 +6,6 @@ Portfólio profissional com estudos de caso sobre engenharia, transformação di
 
 - Estudos de caso: ORION, SHECard, LAIA, Matriz PTW e Programa de Ideias.
 - Galerias com imagens dos projetos.
-- Manuais em PDF dos projetos ORION e SHECard.
 
 ## Executar localmente
 

@@ -348,8 +348,6 @@ img { display: block; max-width: 100%; }
 .case-before-after > div { padding: 18px 22px; border-left: 3px solid var(--line-strong); background: #f5f7f9; }
 .case-before-after > div:last-child { border-left-color: var(--blue); background: #f2f7fb; }
 .case-before-after h5 { margin: 0 0 12px; color: var(--ink); font-family: var(--font-display); font-size: 16px; }
-.project-manual { display: inline-flex; margin-top: 16px; padding: 9px 13px; border: 1px solid var(--line-strong); color: var(--blue-deep); font-size: 13px; font-weight: 700; }
-.project-manual:hover { background: #f3f7fa; }
 .transformation-pattern { margin-top: 70px; padding: 42px 0 0; border-top: 2px solid var(--blue); }
 .transformation-pattern .eyebrow { margin-bottom: 8px; }
 .transformation-pattern h3 { max-width: 900px; margin: 0 0 18px; font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 40px); font-weight: 600; letter-spacing: -.045em; line-height: 1.15; }

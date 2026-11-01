@@ -17,7 +17,3 @@ window.PROJECT_GALLERIES = {
     "assets/projects/programa-ideias/Captura%20de%20tela%202026-10-16%20235451.png"
   ]
 };
-window.PROJECT_MANUALS = {
-  "orion": "docs/orion/MANUAL%20DO%20PROJETO%20ORION.pdf",
-  "shecard": "docs/shecard/MANUAL%20DO%20SHECARD%20(1).pdf"
-};
